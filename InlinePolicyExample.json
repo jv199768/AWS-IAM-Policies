@@ -1,0 +1,29 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "LogStreamsAccessAll",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogStreams"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "SplunkCredentialsAccess",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:GetResourcePolicy"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:us-east-1:058264204247:secret:<third-party-api-key>"
+            ]
+        }
+    ]
+}
